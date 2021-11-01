@@ -6,7 +6,7 @@ set -eu
 ## a change if the file content actually changed. Not updating the index can
 ## give incorrect results when this script is run right after a build.
 
-git update-index -q --refresh
+git update-index -q --really-refresh
 
 if ! git diff-index --quiet --exit-code HEAD -- {tsx,typescript}/src/; then
     cat 1>&2 <<EOF
